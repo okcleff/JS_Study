@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let member = ['a', 'b', 'c']; // a, b, c 각각의 데이터를 원소(element)라고 함
+    document.write(member+'<br>');
+    document.write(member[0]+'<br>'); // [] 안의 1,2,3 은 색인(index)이라고 함
+
+    function get_members(){
+      return ['d', 'e', 'f', 'g'];
+    }
+    let member2 = get_members();
+    document.write(member2[0]+'<br>');
+    document.write(member2[1]+'<br>');
+    document.write(member2[2]+'<br>');
+
+    function arrayEx(){
+      for (let i = 0; i < member2.length; i++){
+        document.write(member2[i].toUpperCase()+'<br>');
+      }
+    }
+
+    member2.push('h'); // .push: 배열의 마지막에 원소를 추가
+    arrayEx();
+
+    member2 = member2.concat(['i', 'j']); // .concat: 배열에 배열을 추가
+    document.write(member2+'<br>');
+    arrayEx();
+
+    let aa = ['aa', 'bb'];
+    let bb = ['cc', 'dd'];
+    aa = aa.concat(bb);
+    document.write(aa+'<br>');
+
+    member2.unshift('c'); // .unshift: 원소를 배열의 시작점(0)에 추가, 인덱스가 바뀜
+    document.write(member2+'<br>');
+
+    /* splice = array.splice(index, howmany, element1, ... , elementN);
+    index = 배열을 추가할 위치
+    howmany = index에서부터 제거될 원소들의 수
+    element1, ... , elementN = index에서부터 howmany 로 제거된 원소 이후로 추가될 원소들
+    */
+    member2.splice(0, 0, 'a', 'b'); // howmany가 0 일 경우 index 앞으로 원소가 들어감
+    document.write(member2+'<br>');
+    member2.splice(4, 3, 'x', 'y');
+    document.write(member2+'<br>');
+
+    member2.shift(); // .shift: 첫 번째 원소를 제거
+    document.write(member2+'<br>');
+
+    member2.pop(); // .pop: 마지막 원소를 제거
+    document.write(member2+'<br>');
+
+    let q = ['4', '5', '2', '1']
+    q.sort(); // .sort: 순서대로 정렬
+    document.write(q+'<br>');
+    q.reverse(); // .reverse: 역순으로 정렬
+    document.write(q+'<br>');
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    while (조건-boolean) {
+      반복해서 실행할 코드
+    }
+    */
+    let i = 0;
+    while(i < 5){
+      document.write("Coding everybody "+i+"<br>");
+      i = i + 1;
+    }
+    /*
+    for(초기화=최초1번만실행, boolean, 반복조건){
+      반복해서 실행할 코드
+    }
+    (i=i+1;) = (i++); i++는 i부터 적용, ++i는 i값에 1을 더해서 적용
+    */
+    document.write("<br>");
+    for(let i = 0; i < 5; i++){
+      document.write("Coding everybody "+i+"<br>");
+    }
+    document.write("<br>");
+    for(let i = 0; i < 5; i++){
+      if(i === 3){
+        break;
+      }
+      document.write("Coding everybody "+i+"<br>");
+    }
+    document.write("<br>");
+    for(let i = 0; i < 5; i++){
+      if(i === 3){
+        continue;
+      }
+      document.write("Coding everybody "+i+"<br>");
+    }
+    document.write("<br>");
+    for(let i = 0; i < 10; i++){
+      for(let j = 0; j < 10; j++){
+        document.write("Coding everybody "+i+j+"<br>");
+      }
+    }
+    // 개발자도구의 debugger에서 breakpoint를 설정하여 코드가 진행되는 과정을 쪼개서 볼 수 있음
+  </script>
+</body>
+</html>

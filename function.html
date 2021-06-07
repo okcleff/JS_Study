@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    funciton 함수명 ( [인자], [인자] ...){
+      코드
+      return 반환값
+    }
+    */
+  function numbering(){
+    for(i = 0; i < 5; i = i + 1){
+      document.write(i+'<br>');
+    }
+  }
+  // function numbering(){
+  //   let i = 0;
+  //   while(i < 10){
+  //     document.write(i+'<br>');
+  //     i = i + 1;
+  //   }
+  // }
+  for(j = 0; j < 3; j++){
+    numbering();
+  }
+
+  function get_member1(){
+    return 'a'; // return(출력): 1) 위의 함수를 종료시킴, 2) return 뒤의 값을 위 함수의 출력값으로 반환함
+  }
+  function get_member2(){
+    return 'b';
+  }
+  document.write(get_member1()+'<br>');
+  document.write(get_member2()+'<br>');
+
+  function get_argument(arg){ // 여기서 arg = parameter(매개변수)
+    return arg;
+  }
+  document.write(get_argument('x')+'<br>'); // 여기서 'x' = argument(인자)
+  document.write(get_argument('y')+'<br>');
+
+  numbering2 = function(){
+    let k = 0;
+    while(k < 5){
+      document.write(k+'<br>');
+      k = k + 1;
+    }
+  }
+  numbering2();
+
+  (function(){
+    let l = 0;
+    while(l < 5){
+      document.write(l+'<br>');
+      l = l + 1;
+    }
+  })(); // 익명함수: 함수를 정의함과 동시에 불러옴
+  </script>
+</body>
+</html>
