@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+  <script>
+    let grades = {'a': 10, 'b': 6, 'c': 15}; // {'key': value}
+    /*
+    let grades = {};
+    grades['a'] = 10;
+    grades['b'] = 6;
+    grades['c'] = 15;
+    또는
+    let grades = new Object();
+    grades['a'] = 10;
+    grades['b'] = 6;
+    grades['c'] = 15;
+    */
+    document.write(grades['a']+'<br>');
+    document.write(grades.b+'<br>');
+
+    for(key in grades){
+      document.write("<li> key : "+key+" value : "+grades[key]);
+    }
+    // 배열에서도 for in 문을 쓸 수 있음
+  </script>
+  </ul>
+  <script>
+    let grades2= {
+      'list' : {'d' : 20, 'e' : 30, 'f' : 40},
+      'show' : function (){
+        document.write('Hello world'+'<br>');
+      }
+    }
+    document.write(grades2['list']['d']+'<br>');
+    grades2.show();
+
+    let grades3 = {
+      'list' : {'g' : 9, 'h' : 6, 'i' : 8},
+      'show' : function(){
+        for(key in this.list){
+          console.log(key, this.list[key]);
+        }
+        console.log(this.list); // this: 해당 함수가 속해있는 객체를 가리키는 변수
+      }
+    } // 객체지향 프로그래밍
+    grades3.show();
+  </script>
+</body>
+</html>
