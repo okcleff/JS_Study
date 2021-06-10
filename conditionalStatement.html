@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    label {
+      width: 40px;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+<script>
+  /*
+  if(true) {
+    alert('result : true');
+  }
+
+  if(false) {
+    alert('result : false');
+  } // (false) 이므로 경고창이 출력되지 않음
+
+  if(false) {
+    alert(1); // (false) 이므로 무시
+  } else if(true) {
+    alert(2); // (true) 이므로 출력
+  } else if(true) {
+    alert(3); // 앞에서 2 가 출력되었으므로 무시
+  } else {
+    alert(4); // 2 만 출력됨
+  }
+  */
+  let id = prompt('아이디를 입력해주세요.')
+  if(id === 'okclef') {
+    let pw = prompt('비밀번호를 입력해주세요.')
+    if(pw === '1111'){
+      alert('로그인 되었습니다. \n' +id+ ' 님 반갑습니다.')
+    } else {
+      alert('비밀번호가 일치하지 않습니다.')
+    }
+  } else {
+    alert('아이디가 일치하지 않습니다.')
+  }
+// &&: and 연산자, ||: or 연산자, !true(false): true(false)의 부정
+</script>
+<div>
+  <label for="id">ID:</label>
+  <input type="text" name="id" placeholder="okclef">
+  <br>
+  <label for="pw">PW:</label>
+  <input type="password" name="pw" placeholder="1111">
+</div>
+<ul>
+  <h2>falsy values are...</h2>
+  <li>0</li>
+  <li>empty values like "" or ''</li>
+  <li>null</li>
+  <li>undefined</li>
+  <li>NaN(Not a Number)</li>
+</ul>
+</body>
+</html>
