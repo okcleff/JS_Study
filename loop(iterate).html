@@ -49,6 +49,23 @@
       }
     }
     // 개발자도구의 debugger에서 breakpoint를 설정하여 코드가 진행되는 과정을 쪼개서 볼 수 있음
+
+    const myArray = [6, 19, 20];
+    const yourArray = [19, 81, 2];
+    for (let i = 0; i < myArray.length; i++) {
+      for (let j = 0; j < yourArray.length; j++) {
+        if (myArray[i] === yourArray[j]) {
+          document.write('Both loops have the number: ' + yourArray[j]+'<br>')
+        }
+      }
+    }; // 배열 안에 같은 element 찾기
+
+    const cards = ['diamond', 'spade', 'heart', 'club'];
+    let currentCard;
+    while(currentCard !== 'spade'){
+      currentCard = cards[Math.floor(Math.random() * 4)];
+      document.write(currentCard+'<br>');
+    } // currentCard에 'spade'가 들어갈 때까지 반복
   </script>
 </body>
 </html>
