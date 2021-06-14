@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!--
+  컴파일: 패턴을 찾는 법
+  실행: 찾은 패턴에 대해서 구체적인 작업을 하는 것
+  정규표현식은 원하는 정보를 추출하거나, 정보의 유무를 테스트하거나, 검색된 정보를 다른 정보로 치환하는데 활용
+  -->
+<script>
+  let str = 'abcdef';
+  let pattern = /a/; // == let pattern = new RegExp('a');
+  document.write(pattern.exec('abcde')+'<br>'); // .exec(인자): 인자 안에 패턴이 있는지 찾아서 배열로 return 해주는 method, 원하는 정보를 추출하기 위한 목적
+  pattern = /a./; // 앞에는 반드시 a가 오고, 이어서 어떤 문자가 오는 패턴
+  document.write(pattern.exec('abcde')+'<br>');
+  document.write(pattern.exec('bcdef')+'<br>'); // null, 찾고자 하는 문자가 없음
+  document.write(pattern.test('abcde')+'<br>'); // .test(인자): 인자 안에 패턴이 있는지 찾아서 boolean으로 return, 원하는 정보의 유무를 테스트하기 위한 method
+  pattern = /a/;
+  document.write(str.match(pattern)+'<br>'); // .match: RegExp.exec와 유사한 method
+  document.write(str.replace(pattern, 'A')+'<br>'); // .replace: str에서 pattern과 일치하는 정보를 찾아 'A'로 바꿈
+
+  let xi = /A/;
+  document.write(str.match(xi)+'<br>');
+  let oi = /A/i; // i를 뒤에 붙이면 대소문자를 구분하지 않게 됨
+  document.write(str.match(oi)+'<br>');
+
+  let str2 = 'abcdefa'
+  let xg = /a/;
+  document.write(str2.match(xg)+'<br>');
+  let og = /a/g; // g를 뒤에 붙이면 인자 안에 중복되는 패턴 전부를 추출함
+  document.write(str2.match(og)+'<br>');
+  let str3 = 'AabcdeAa'
+  let ig = /a/ig; // i와 g를 동시에 사용할 수 있음
+  document.write(str3.match(ig)+'<br>');
+
+  pattern = /(\w+)\s(\w+)/;
+  /*
+  ()괄호는 그룹을 의미
+  \w는 문자를 의미(A~Z, a~z, 0~9)
+  +(수량자)는 앞에 있는 문자가 하나 이상인 경우에 패턴이 유효
+  \s는 공백을 의미
+  */
+  str = 'coding everybody'
+  let results = str.replace(pattern, '$2, $1'); // $n은 패턴 내 n번째 그룹을 의미함
+  document.write(results+'<br>');
+
+  let urlPattern = /\b(?:https?):\/\/[a-z0-9-+&@#\/%?=~_|!:,.;]*/gim;
+  let content = '생활코딩 : http://opentutorials.org/course/1 입니다. 네이버 : http://naver.com 입니다. ';
+  let result = content.replace(urlPattern, function(url){
+      return '<a href="'+url+'">'+url+'</a>';
+  });
+  document.write(result);
+</script>
+</body>
+</html>
