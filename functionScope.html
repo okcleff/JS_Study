@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let vscope = 'global'; // 전역변수(global variables)
+    function fscope(){
+      let vscope = 'local'; // 지역변수(local variables), fscope라는 함수 안에서만 적용됨
+      document.write(vscope+'<br>'); // 가까이 있는(같은 함수 안에 있는) vscope을 불러옴
+    }
+    fscope(); // 'local'이 출력
+
+    let vscope2 = 'global';
+    function fscope2(){
+      let vscope2 = 'local'; // 지역변수인 vscope2가 새로 할당됨
+    }
+    fscope2();
+    document.write(vscope2+'<br>'); // 전역변수 vscope2를 불러오므로 'global'이 출력
+
+    let vscope3 = 'global';
+    function fscope3(){
+      vscope3 = 'local'; // 전역변수인 vscope3의 값을 local로 변경
+    }
+    fscope3();
+    document.write(vscope3+'<br>'); // 변경된 전역변수 vscope3의 값인 'local'이 출력
+    // 가급적 지역변수를, 변수 할당자(let, const)를 활용하여 할당할 것
+
+    function a (){
+      let i = 0; // let 없이 i를 사용할 경우, 아래의 for문에서 오류가 발생 -> 전역변수 i의 값을 0으로 고정시키기 때문
+    }
+    for (let i = 0; i < 5; i++){ // 여기서 i는 전역변수
+      a();
+      document.write(i+'<br>');
+    }
+
+    (function (){ // 익명함수를 활용
+      let MYAPP = {} // 전역변수를 하나 지정하고, 내부의 정보를 객체화시키는 과정
+      MYAPP.calculator = { // left와 right = 좌항과 우항
+          'left' : null,
+          'right' : null
+      }
+      MYAPP.coordinate = { // 위치상 왼쪽과 오른쪽
+          'left' : null,
+          'right' : null
+      }
+
+      MYAPP.calculator.left = 10;
+      MYAPP.calculator.right = 20;
+      function sum(){
+          return MYAPP.calculator.left + MYAPP.calculator.right;
+      }
+      document.write(sum()+'<br>');
+    })(); // 함수를 정의함과 동시에 불러옴
+
+    let i = 5;
+    function x(){
+      let i = 10;
+      y();
+    }
+    function y(){
+      document.write(i); // 정적유효범위: y가 선언된 시점의 i, 즉 전역변수 i의 값인 5가 불러와짐
+    }
+    x();
+  </script>
+<h2>자바스크립트의 지역변수는 함수에서만 유효함</h2>
+<h2>예를 들어, for문 안에서 변수를 선언한다고 하더라도, for문 밖에서 해당 변수를 불러올 수 있음</h2>
+</body>
+</html>
