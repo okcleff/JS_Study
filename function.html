@@ -61,12 +61,30 @@
       l = l + 1;
     }
   })(); // 익명함수: 함수를 정의함과 동시에 불러옴
-  
+
   const rectangleArea = (width, height) => { // arrow functions: function이라는 명령어 대신 => 으로 함수 지정 가능
   let area = width * height;
   return area;
   };
   const functionName = number => number + number; // 매개변수가 하나일 경우 괄호를 생략할 수 있음, 함수 내용이 한 줄일 경우 중괄호를 생략할 수 있으며, 이 경우 결과값이 자동으로 return됨
+
+  // apply를 통해서 함수를 불러오는 방법
+  function plus (a, b){
+    return a + b ;
+  }
+  document.write(plus.apply(null, [9, 10])+'<br>'); // .apply는 브라우저에 기본으로 저장되어있는 method임
+
+  let o1 = {val1:1, val2:2, val3:3};
+  let o2 = {v1:10, v2:50, v3:100, v4:25};
+  function sum(){
+      let _sum = 0;
+      for(name in this){
+          _sum += this[name];
+      }
+      return _sum;
+  }
+  document.write(sum.apply(o1)+'<br>') // .apply(인자)를 주게되면 인자가 sum 함수 내에 this가 됨
+  document.write(sum.apply(o2)+'<br>') // .apply 없이 실행하면 error가 뜸
   </script>
 </body>
 </html>
