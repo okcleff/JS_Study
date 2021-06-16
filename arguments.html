@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function sum(){
+    let _sum = 0;
+    for(let i = 0; i < arguments.length; i++){ // arguments: JS에서 약속되어있는 특수한 변수명이며, 이 변수 안에는 arguments라고 하는 유사배열이 담겨져 있음, 사용자가 전달한 인자가 들어감
+      document.write(i+' : '+arguments[i]+'<br>');
+      _sum += arguments[i]; // "a += n" == "a = a + n"
+      }
+      return _sum;
+    }
+    document.write('result : ' + sum(1,2,3,4)); // 사용자가 전달한 인자의 수만큼 for문이 반복 실행됨
+
+    function zero(){
+      console.log(
+        'zero.length', zero.length,
+        'arguments', arguments.length
+      );
+    }
+    zero(); // zero.length 0 arguments 0
+    function one(arg1){
+      console.log(
+        'one.length', one.length, // 함수가 갖고 있는 매개변수의 수
+        'arguments', arguments.length // 함수에 입력된 인자의 수
+      );
+      if (one.length > arguments.length){
+        console.log('check arguments');
+      } else if (one.length < arguments.length) {
+        console.log('check parameters');
+      }
+    }
+    one('val1', 'val2');  // one.length 1 arguments 2
+    function two(arg1, arg2){
+      console.log(
+        'two.length', two.length,
+        'arguments', arguments.length
+      );
+      if (two.length > arguments.length){
+        console.log('check arguments');
+      } else if (one.length < arguments.length) {
+        console.log('check parameters');
+      }
+    }
+    two('val1');  // two.length 2 arguments 1
+  </script>
+</body>
+</html>
