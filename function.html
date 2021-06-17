@@ -85,6 +85,11 @@
   }
   document.write(sum.apply(o1)+'<br>') // .apply(인자)를 주게되면 인자가 sum 함수 내에 this가 됨
   document.write(sum.apply(o2)+'<br>') // .apply 없이 실행하면 error가 뜸
+
+  function showMessage(message, from = 'unknown'){ // = 'unknown'은 default parameter, 사용자로부터 인자가 전달되지 않을 경우 default로 전달되는 인자
+    document.write(`${message} by ${from}`)
+  }
+  showMessage('Hi!');
   </script>
 </body>
 </html>

@@ -58,6 +58,19 @@
       // }
     };
     document.write(numbers.sort(sortFunc)); // 여기서 sortFunc가 콜백 함수
+
+    function add(num1, num2){
+      return num1 + num2;
+    }
+    function divide(num1, num2){
+      return num1 / num2;
+    }
+    function surprise(operator){
+      const result = operator(4, 2); // 여기서 operator는 add함수를 호출하는 역할 => callback
+      console.log(result);
+    };
+    surprise(add);
+    surprise(divide);
   </script>
 </body>
 </html>
